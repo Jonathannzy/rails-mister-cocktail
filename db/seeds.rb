@@ -8,12 +8,32 @@
 require 'open-uri'
 require 'json'
 
+puts "wiping db..."
 Ingredient.destroy_all
 
-puts "seeding ingredients"
-uri = URI.parse(open("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list").string)
+url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 
-ingredients = JSON.parse(File.read(uri))
-ingredients.each do |ingredient|
-  Ingredient.create!(ingredient.strIngredient1)
+ingredients = JSON.parse(open(url).read)
+ingredients["drinks"].each do |ingredient|
+  i = Ingredient.create!(name: ingredient["strIngredient1"])
+  puts "create #{i.name}"
 end
+# puts "seeding ingredient"
+# ingredient = Ingredient.create!(name: "Applejack")
+# ingredient.save!
+# puts 'finished'
+
+# puts "seeding ingredient"
+# ingredient = Ingredient.create!(name: "Lemon")
+# ingredient.save!
+# puts 'finished'
+
+# puts "seeding ingredient"
+# ingredient = Ingredient.create!(name: "Ice")
+# ingredient.save!
+# puts 'finished'
+
+# puts "seeding ingredient"
+# ingredient = Ingredient.create!(name: "Mint Leaves")
+# ingredient.save!
+# puts 'finished'

@@ -1,0 +1,19 @@
+<h1>Fancy Cocktails</h1>
+<div class="container">
+<% @cocktails.each do  |cocktail| %>
+<div class="d-flex">
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="image of cocktail">
+  </div>
+  <div class="card-body">
+    <%= cocktail.name %>
+    <div>
+      <%= link_to "Open", 'cocktail_id_path[:id]' %>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
+<div>
+  <%= link_to 'Create new cocktail', new_cocktail_path %>
+</div>
