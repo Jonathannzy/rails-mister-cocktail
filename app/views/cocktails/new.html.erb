@@ -3,7 +3,7 @@
     <div class="col-md-8">
     <h1>Create a new Cocktail</h1>
     <div>
-      <%= simple_form_for @cocktail do |c| %>
+      <%= simple_form_for(@new_cocktail) do |c| %>
       <%= c.input :name %>
       <%= c.submit :Submit, class: 'btn btn-success' %>
       <% end %>

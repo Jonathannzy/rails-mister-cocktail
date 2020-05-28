@@ -9,7 +9,7 @@
   <div class="card-body">
     <%= cocktail.name %>
     <div>
-      <%= link_to "Open", 'cocktail_id_path[:id]' %>
+    <%= link_to "Open", cocktail_path(cocktail) %>
     </div>
   </div>
   <% end %>
